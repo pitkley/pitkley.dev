@@ -16,6 +16,7 @@
                     <li><a href="{{ get_taxonomy_url(kind="categories", name=cat, lang=lang) | safe }}">{{ cat }}</a></li>
                     {% endfor %}
                 </ul>
+                ◦
             {% endif %}
             {% if page.taxonomies.tags %}
                 <ul class="article-tags">
@@ -97,12 +98,12 @@
     {% endif %}
     <div class="article-taxonomies">
         {% if page.taxonomies.categories %}
-        ◦
         <ul class="article-categories">
             {% for cat in page.taxonomies.categories %}
             <li><a href="{{ get_taxonomy_url(kind="categories", name=cat, lang=lang) | safe }}">{{ cat }}</a></li>
             {% endfor %}
         </ul>
+        ◦
         {% endif %}
         {% if page.taxonomies.tags %}
         <ul class="article-tags">
