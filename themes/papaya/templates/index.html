@@ -34,6 +34,26 @@
             <p class="read-more"><a href={{ subsec_link_path }}>{{ trans(key=subsec.more_trans_key, lang=lang) }} ≫</a></p>
         </section>
     {% endfor %}
+    {% if config.extra.pushed_projects %}
+        <section class="index-listing">
+            <h2>
+                {{ trans(key="notable_projects", lang=lang) }}
+            </h2>
+            {% if section.subsections is containing("projects/_index." ~ lang ~ ".md") %}
+                {% set projects_section_path = "projects/_index." ~ lang ~ ".md" %}
+                {% set projects_section_link_path = lang ~ "/projects/" %}
+            {% else %}
+                {% set projects_section_path = "projects/_index.md" %}
+                {% set projects_section_link_path = "projects/" %}
+            {% endif %}
+            {% set projects_section = get_section(path=projects_section_path) %}
+            {% set projects_section_pages = projects_section.pages | group_by(attribute="slug") %}
+            {% for project in config.extra.pushed_projects %}
+                {{ page_macros::page_listing(page=projects_section_pages[project][0], with_reading_time=false) }}
+            {% endfor %}
+            <p class="read-more"><a href={{ projects_section_link_path }}>{{ trans(key="more_projects", lang=lang) }} ≫</a></p>
+        </section>
+    {% endif %}
     </section>
 </main>
 {% endblock content %}

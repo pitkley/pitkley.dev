@@ -1,8 +1,12 @@
 <!-- page listing macros -->
-{% macro page_info(page) %}
+{% macro page_info(page, with_reading_time=true) %}
     <div class="article-info">
         {% if page.date %}
-        {% set reading_time = "◦ " ~ page.reading_time ~ " " ~ trans(key="minute", lang=lang) %}
+        {% if with_reading_time %}
+            {% set reading_time = "◦ " ~ page.reading_time ~ " " ~ trans(key="minute", lang=lang) %}
+        {% else %}
+            {% set reading_time = "" %}
+        {% endif %}
         <div class="article-date">{{ page.date | date(format=trans(key="date_format", lang=lang)) }} {{ reading_time }} ◦ </div>
         {% endif %}
         <div class="article-taxonomies">
@@ -24,7 +28,7 @@
     </div>
 {% endmacro page_info %}
 
-{% macro page_listing(page) %}
+{% macro page_listing(page, with_reading_time=true) %}
     <article class="post-list">
         <a href="{{ page.permalink }}">
             <header>
@@ -40,7 +44,10 @@
             {% endif %}
         </a>
  
-        {{ self::page_info(page=page) }}
+        {{ self::page_info(
+            page=page, 
+            with_reading_time=with_reading_time,
+        ) }}
     </article>
 {% endmacro page_listing %}
 
