@@ -58,10 +58,8 @@
         <p>
             {{ social_macros::social_links(social_config=config.extra.social) }}
         </p>
-        <p>
-            {% block footer %}
-            {% endblock footer %}
-        </p>
+        {% block footer %}
+        {% endblock footer %}
     </footer>
 </div>
 </body>

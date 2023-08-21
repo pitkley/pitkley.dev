@@ -1,0 +1,14 @@
+{% extends "papaya/templates/base.html" %}
+
+{% block extra_head %}
+    <link rel="preload" href="{{ get_url(path="additional.css", trailing_slash=false) }}" as="style">
+    <link rel="stylesheet" href="{{ get_url(path="additional.css", trailing_slash=false) }}">
+{% endblock %}
+
+{% block footer %}
+    <p class="licensing">
+        Text content, unless otherwise stated, licensed under <a href="{{ get_url(path="@/licensing/cc-by-sa-4.0.md") }}">CC BY-SA 4.0</a>.
+        <br/>
+        Code snippets, unless otherwise stated, licensed under the <a href="{{ get_url(path="@/licensing/mit.md") }}">MIT license</a>.
+    </p>
+{% endblock %}
