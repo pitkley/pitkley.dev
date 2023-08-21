@@ -14,6 +14,11 @@ banner_attribution = """&mdash; Photo by [Simon Schafstall](https://unsplash.com
 
 color_mode = "auto"
 menu_items = [
+    { name = "projects", url = "$LANG_BASE_URL/projects", show_recent = false },
+    { name = "tags", url = "$LANG_BASE_URL/tags" },
+]
+pushed_projects = [
+    "dfw",
 ]
 
 [extra.ogp]
