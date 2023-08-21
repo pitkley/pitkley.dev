@@ -11,6 +11,9 @@ tags = [
     "firewall",
     "rust",
 ]
+
+[extra]
+repo_path = "pitkley/dfw"
 +++
 
 Make firewall administration with Docker simpler.

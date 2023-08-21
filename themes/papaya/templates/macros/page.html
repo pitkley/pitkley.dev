@@ -1,3 +1,7 @@
+{% macro github_facts(repository) %}
+    <div hx-get="/api/github-facts?repository={{ repository | urlencode }}" hx-trigger="load" hx-swap="outerHTML"></div>
+{% endmacro github_facts %}
+
 <!-- page listing macros -->
 {% macro page_info(page, with_reading_time=true) %}
     <div class="article-info">
@@ -26,6 +30,9 @@
                 </ul>
             {% endif %}
         </div>
+        {% if page.extra.repo_path %}
+            {{ self::github_facts(repository=page.extra.repo_path) }}
+        {% endif %}
     </div>
 {% endmacro page_info %}
 
@@ -113,22 +120,8 @@
         </ul>
         {% endif %}
     </div>
-    {% if get_env(name=config.extra.env, default="stage") == "prod" and page.extra.repo_path %}
-    {% set response = load_data(url="https://api.github.com/repos/" ~ page.extra.repo_path, format="json") %}
-    <div class="article-github"> ◦
-        <a href="{{ "https://www.github.com/" ~ page.extra.repo_path }}">
-        <span class="icon is-large">
-          <i class="fa fas fa-star"></i>
-        </span>
-        {{ response.stargazers_count }}
-        {% if response.forks_count > 0 %}
-        <span class="icon is-large">
-          <i class="fa fas fa-code-branch"></i>
-        </span>
-        {{ response.forks_count }}
-        {% endif %}
-        </a>
-    </div>
+    {% if page.extra.repo_path %}
+        {{ self::github_facts(repository=page.extra.repo_path) }}
     {% endif %}
 </div>
 {% endmacro project_info %}
