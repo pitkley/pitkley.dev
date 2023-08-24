@@ -43,11 +43,24 @@ async function githubFactsResponse(kv, repository) {
     return new Response(htmlFragment);
 }
 
+const REPOSITORY_WHITELIST = [
+    "pitkley/aws-search-extension",
+    "pitkley/cfzt",
+    "pitkley/dfw",
+    "pitkley/i3nator",
+    "pitkley/impaired",
+    "pitkley/in-container",
+    "pitkley/pitkley.dev",
+];
+
 export async function onRequestGet(context) {
     const url = new URL(context.request.url);
     const repository = url.searchParams.get("repository");
     if (!repository) {
-        return new Response("");
+        return new Response(null, {status: 400});
+    }
+    if (!REPOSITORY_WHITELIST.includes(repository)) {
+        return new Response(null, {status: 403});
     }
 
     return await githubFactsResponse(context.env.KV, repository);
