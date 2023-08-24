@@ -14,8 +14,8 @@ banner_attribution = """&mdash; Photo by [Christian Lue](https://unsplash.com/@c
 
 color_mode = "auto"
 menu_items = [
-    { name = "projects", url = "$LANG_BASE_URL/projects", show_recent = false },
-    { name = "tags", url = "$LANG_BASE_URL/tags" },
+    { name = "projects", url = "$LANG_BASE_URL/projects/", show_recent = false },
+    { name = "tags", url = "$LANG_BASE_URL/tags/" },
 ]
 pushed_projects = [
     "dfw",
