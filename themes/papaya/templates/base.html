@@ -23,6 +23,11 @@
     <link rel="preload" href="{{ get_url(path="htmx.min.js", trailing_slash=false) }}" as="script">
     <script src="{{ get_url(path="htmx.min.js", trailing_slash=false) }}"></script>
 
+    {% set umami_website_id = get_env(name=config.extra.umami.website_id_environment_variable_name, default=false) %}
+    {% if umami_website_id %}
+    <script async defer src="{{ get_url(path="/u.js", trailing_slash=false)}}" data-website-id="{{ umami_website_id }}" data-do-not-track="true"></script>
+    {% endif %}
+
     {% if config.generate_feed %}
     <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
     {% endif %}
