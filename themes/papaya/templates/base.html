@@ -17,11 +17,11 @@
     <link rel="preload" href="{{ get_url(path=color_mode_css_path, trailing_slash=false) }}" as="style">
     <link rel="stylesheet" href="{{ get_url(path=color_mode_css_path, trailing_slash=false) }}">
 
-    <link rel="preload" href="{{ config.extra.cdn.font_awesome.url | safe }}" integrity="{{ config.extra.cdn.font_awesome.integrity | safe }}" crossorigin="anonymous" referrerpolicy="no-referrer" as="style">
-    <link rel="stylesheet" href="{{ config.extra.cdn.font_awesome.url | safe }}" integrity="{{ config.extra.cdn.font_awesome.integrity | safe }}" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preload" href="{{ get_url(path="fontawesome.min.css", trailing_slash=false) }}" as="style">
+    <link rel="stylesheet" href="{{ get_url(path="fontawesome.min.css", trailing_slash=false) }}">
 
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.4/htmx.min.js" integrity="sha512-ZM2vxgVBxhBI5Etj/c/qcJV+upate3VzbVQOQRCx1YGuyEX9dYdMh8pRUot4xIwtAay6QwRQC/FdXRjSWIEHrg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.4/htmx.min.js" integrity="sha512-ZM2vxgVBxhBI5Etj/c/qcJV+upate3VzbVQOQRCx1YGuyEX9dYdMh8pRUot4xIwtAay6QwRQC/FdXRjSWIEHrg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preload" href="{{ get_url(path="htmx.min.js", trailing_slash=false) }}" as="script">
+    <script src="{{ get_url(path="htmx.min.js", trailing_slash=false) }}"></script>
 
     {% if config.generate_feed %}
     <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">

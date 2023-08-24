@@ -10,10 +10,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: taiki-e/install-action@v2
+      with:
+        tool: zola@0.17.2
     - name: Checkout main
       uses: actions/checkout@v3.0.0
-    - name: Build only
-      uses: shalzz/zola-deploy-action@v0.17.2
-      env:
-        BUILD_ONLY: true
-        BUILD_FLAGS: --drafts
+    - name: make prerequisites
+      run: make prerequisites
+    - name: zola check --drafts
+      run: zola check --drafts
+    - name: zola build --drafts
+      run: zola build --drafts
+    - name: zola check
+      run: zola check
+    - name: zola build
+      run: zola build

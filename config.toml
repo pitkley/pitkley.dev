@@ -1,6 +1,6 @@
 base_url = "https://pitkley.dev"
 compile_sass = true
-build_search_index = true
+build_search_index = false
 default_language = "en"
 
 theme = "papaya"
@@ -33,10 +33,6 @@ github = "pitkley"
 
 [extra.images]
 max_width = 2500
-
-[extra.cdn.font_awesome]
-url = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-integrity = "sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
 
 [languages]
 
