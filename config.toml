@@ -10,7 +10,7 @@ highlight_code = true
 highlight_theme = "gruvbox-dark"
 
 [extra]
-banner_attribution = """&mdash; Photo by [Simon Schafstall](https://unsplash.com/@symn) on [Unsplash](https://unsplash.com/photos/tmOCN77l8sk)"""
+banner_attribution = """&mdash; Photo by [Christian Lue](https://unsplash.com/@christianlue) on [Unsplash](https://unsplash.com/photos/4OBZT6oLVHk)"""
 
 color_mode = "auto"
 menu_items = [
