@@ -7,7 +7,10 @@ theme = "papaya"
 
 [markdown]
 highlight_code = true
-highlight_theme = "gruvbox-dark"
+highlight_theme = "css"
+highlight_themes_css = [
+  { theme = "gruvbox-dark", filename = "syntax-theme.css" },
+]
 
 [extra]
 banner_attribution = """&mdash; Photo by [Christian Lue](https://unsplash.com/@christianlue) on [Unsplash](https://unsplash.com/photos/4OBZT6oLVHk)"""
