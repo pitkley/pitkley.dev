@@ -12,6 +12,11 @@ highlight_themes_css = [
   { theme = "gruvbox-dark", filename = "syntax-theme.css" },
 ]
 
+[link_checker]
+skip_prefixes = [
+    "https://dash.cloudflare.com/", # returns a 403 in certain circumstances
+]
+
 [extra]
 banner_attribution = """&mdash; Photo by [Christian Lue](https://unsplash.com/@christianlue) on [Unsplash](https://unsplash.com/photos/4OBZT6oLVHk)"""
 
