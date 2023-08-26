@@ -17,7 +17,6 @@ git subtree pull --prefix themes/papaya https://github.com/justint/papaya.git ma
 
 The advantages of vendoring the theme using git subtrees include being able to modify the theme without maintaining a fork while still being able to pull upstream changes, all while not having to fiddle around with git submodules (which also makes the initial project checkout and build easier).
 
-<sup>
 ## <a name="license"></a> License
 
 All blog content in the `content/` folder, excluding code snippets, is licensed under the Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license ([LICENSE-CC-BY-SA-4.0](LICENSE-CC-BY-SA-4.0)).
@@ -26,5 +25,3 @@ The remainder of the repository, including the code snippets in the `content/` f
 ### <a name="license-contribution"></a> Contribution
 
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion by you, shall be licensed as indicated above, without any additional terms or conditions.
-</sup>
-
