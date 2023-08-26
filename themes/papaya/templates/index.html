@@ -31,7 +31,7 @@
             {% for page in subsec_section_pages | slice(end=subsec.recent_items) %}
                 {{ page_macros::page_listing(page=page) }}
             {% endfor %}
-            <p class="read-more"><a href={{ subsec_link_path }}>{{ trans(key=subsec.more_trans_key, lang=lang) }} ≫</a></p>
+            <p class="read-more"><a href={{ get_url(path=subsec_link_path, trailing_slash=true) }}>{{ trans(key=subsec.more_trans_key, lang=lang) }} ≫</a></p>
         </section>
     {% endfor %}
     {% if config.extra.pushed_projects %}
@@ -62,7 +62,7 @@
                     {{ page_macros::page_listing(page=projects_section_pages[project][0], with_reading_time=false) }}
                 {% endif %}
             {% endfor %}
-            <p class="read-more"><a href={{ projects_section_link_path }}>{{ trans(key="more_projects", lang=lang) }} ≫</a></p>
+            <p class="read-more"><a href={{ get_url(path=projects_section_link_path, trailing_slash=true) }}>{{ trans(key="more_projects", lang=lang) }} ≫</a></p>
         </section>
         {% endif %}
     {% endif %}
