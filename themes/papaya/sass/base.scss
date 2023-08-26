@@ -148,6 +148,15 @@ kbd {
     line-height: 130%;
 }
 
+kbd {
+    display: inline-block;
+    padding: 0.05em 0.15em;
+    border: 1px solid var(--kbd-border-color);
+    background-color: var(--kbd-background-color);
+    color: var(--kbd-color);
+    border-radius: 4px;
+}
+
 /* Styles */
 
 blockquote {
