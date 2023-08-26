@@ -20,8 +20,8 @@
     <link rel="preload" href="{{ get_url(path="fontawesome.min.css", trailing_slash=false) }}" as="style">
     <link rel="stylesheet" href="{{ get_url(path="fontawesome.min.css", trailing_slash=false) }}">
 
-    <link rel="preload" href="{{ get_url(path="htmx.min.js", trailing_slash=false) }}" as="script">
-    <script src="{{ get_url(path="htmx.min.js", trailing_slash=false) }}"></script>
+    <script async defer src="{{ get_url(path="htmx.min.js", trailing_slash=false) }}"></script>
+    <meta name="htmx-config" content='{"allowEval":false,"allowScriptTags":false,"selfRequestsOnly":true,"includeIndicatorStyles":false}'>
 
     {% set umami_website_id = get_env(name=config.extra.umami.website_id_environment_variable_name, default=false) %}
     {% if umami_website_id %}
