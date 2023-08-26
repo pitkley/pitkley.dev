@@ -1,5 +1,3 @@
-@use "syntax-theme-dark";
-
 @mixin theme($theme: dark) {
     --background-color: rgb(24, 24, 24);
     --header-background-color: rgb(28, 28, 28);
@@ -11,13 +9,13 @@
     --link-hover-line-color: rgb(0, 120, 132);
     --icon-hover-color: var(--link-hover-color);
     --icon-color: var(--text-color);
-    --code-background: rgb(32, 32, 32);
+    --code-text-color: rgb(51, 51, 51);
+    --code-background: rgb(247, 248, 250);
     --table-header-background-color: var(--header-background-color);
 }
 
 :root {
     @include theme($theme: dark);
-    @include syntax-theme-dark.dark;
 }
 
 .img-dark {

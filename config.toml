@@ -7,13 +7,17 @@ theme = "papaya"
 
 [markdown]
 highlight_code = true
-highlight_theme = "gruvbox-dark"
+highlight_theme = "css"
+highlight_themes_css = [
+  { theme = "gruvbox-dark", filename = "syntax-theme.css" },
+]
 
 [extra]
 banner_attribution = """&mdash; Photo by [Christian Lue](https://unsplash.com/@christianlue) on [Unsplash](https://unsplash.com/photos/4OBZT6oLVHk)"""
 
 color_mode = "auto"
 menu_items = [
+    { name = "blog", url = "$LANG_BASE_URL/blog/", show_recent = true, recent_items = 3, recent_trans_key = "recent_blog_posts", more_trans_key = "more_blog_posts" },
     { name = "projects", url = "$LANG_BASE_URL/projects/", show_recent = false },
     { name = "tags", url = "$LANG_BASE_URL/tags/" },
 ]
