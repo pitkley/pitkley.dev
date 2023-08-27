@@ -11,7 +11,7 @@ file_extensions:
 scope: text.shell-session
 contexts:
   main:
-    - match: '^(?:((?:\(\S+\)\s*)?(?:sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)?|\[\S+?[@:][^\n]+?\].*?))\s*)?([>$#%❯➜]|\p{Greek})\s+(.*)$'
+    - match: '^([^>$#%❯➜]+)?([>$#%❯➜]|\p{Greek})\s+(.*)$'
       captures:
         1: entity.other.prompt-prefix.shell-session
         2: punctuation.separator.prompt.shell-session

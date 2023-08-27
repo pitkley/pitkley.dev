@@ -3,7 +3,8 @@ footer p.licensing {
     font-size: 60%;
 }
 
-// Colors are from gruvbox-dark
+// Syntax colors are from gruvbox-dark
+
 .z-shell-session {
     .z-prompt {
         color: #fabd2f;
@@ -13,5 +14,67 @@ footer p.licensing {
     }
     .z-output {
         color: #fabd2f;
+    }
+}
+
+.z-filetree {
+    .z-punctuation {
+        &.z-separator {
+            color: white;
+        }
+    }
+    .z-entity {
+        &.z-name.z-directory {
+            color: #fabd2f;
+        }
+    }
+}
+
+ol.tab-container {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    min-height: 0.9em;
+
+    li {
+        display: inline;
+        min-height: 2em;
+
+        button {
+            min-height: 100%;
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+
+            padding: 0 1rem;
+            min-width: 5rem;
+            border-bottom: .3rem solid transparent;
+
+            &.active {
+                color: var(--link-hover-color);
+                border-color: var(--link-hover-color);
+            }
+
+            &:hover {
+                color: var(--link-hover-color);
+            }
+        }
+    }
+}
+
+.tab-content {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    pre {
+        margin-top: 0;
     }
 }

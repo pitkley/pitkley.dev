@@ -1,0 +1,17 @@
+%YAML 1.2
+---
+name: Filetree
+file_extensions:
+  - filetree
+scope: text.filetree
+contexts:
+  main:
+    - match: '^[ │├─]*([^/]+/)'
+      captures:
+        1: entity.name.directory.filetree
+    - match: '^[ │├─]*([^/]+?(\.[^/]+))'
+      captures:
+        1: entity.name.file.filetree
+        2: entity.name.suffix.filetree
+    - match: '[│├─]'
+      scope: punctuation.separator.filetree

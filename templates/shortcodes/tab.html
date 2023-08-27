@@ -1,0 +1,6 @@
+<div
+    class="tab-content {% if active %}active{% endif %}"
+    data-tab-name="{{ name }}"
+    {% if auto_generate_tab %}data-tab-auto-generate="{{ auto_generate_tab }}"{% endif %}>
+    {{ body | markdown | safe }}
+</div>
