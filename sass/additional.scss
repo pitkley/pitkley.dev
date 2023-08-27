@@ -3,7 +3,8 @@ footer p.licensing {
     font-size: 60%;
 }
 
-// Colors are from gruvbox-dark
+// Syntax colors are from gruvbox-dark
+
 .z-shell-session {
     .z-prompt {
         color: #fabd2f;
@@ -13,5 +14,18 @@ footer p.licensing {
     }
     .z-output {
         color: #fabd2f;
+    }
+}
+
+.z-filetree {
+    .z-punctuation {
+        &.z-separator {
+            color: white;
+        }
+    }
+    .z-entity {
+        &.z-name.z-directory {
+            color: #fabd2f;
+        }
     }
 }
