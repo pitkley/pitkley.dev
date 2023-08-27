@@ -150,7 +150,13 @@ function handleTabContainers() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', (_event) => {
+function initialize() {
     updateFootnoteReferences();
     handleTabContainers();
-});
+}
+
+if (document.readyState !== 'loading') {
+    initialize();
+} else {
+    document.addEventListener('DOMContentLoaded', initialize);
+}
