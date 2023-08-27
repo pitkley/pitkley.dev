@@ -11,6 +11,7 @@ highlight_theme = "css"
 highlight_themes_css = [
   { theme = "gruvbox-dark", filename = "syntax-theme.css" },
 ]
+extra_syntaxes_and_themes = ["syntaxes"]
 
 [link_checker]
 skip_prefixes = [
