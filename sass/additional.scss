@@ -2,3 +2,16 @@ footer p.licensing {
     color: var(--text-accent-color);
     font-size: 60%;
 }
+
+// Colors are from gruvbox-dark
+.z-shell-session {
+    .z-prompt {
+        color: #fabd2f;
+    }
+    .z-shell.z-source {
+        color: #b8bb26;
+    }
+    .z-output {
+        color: #fabd2f;
+    }
+}

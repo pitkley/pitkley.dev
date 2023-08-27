@@ -1,0 +1,20 @@
+%YAML 1.2
+---
+# Original source:
+#   https://github.com/atom/language-shellscript/blob/35dc1aa1371ab75ece08fd0837330eb62e1f9da9/grammars/shell-session.cson
+# Copyright (c) 2014 GitHub Inc.
+# Licensed under MIT.
+
+name: Shell Session
+file_extensions:
+  - sh-session
+scope: text.shell-session
+contexts:
+  main:
+    - match: '^(?:((?:\(\S+\)\s*)?(?:sh\S*?|\w+\S+[@:]\S+(?:\s+\S+)?|\[\S+?[@:][^\n]+?\].*?))\s*)?([>$#%❯➜]|\p{Greek})\s+(.*)$'
+      captures:
+        1: entity.other.prompt-prefix.shell-session
+        2: punctuation.separator.prompt.shell-session
+        3: source.shell
+    - match: ^.+$
+      scope: meta.output.shell-session
