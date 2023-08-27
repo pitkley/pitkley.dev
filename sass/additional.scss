@@ -29,3 +29,52 @@ footer p.licensing {
         }
     }
 }
+
+ol.tab-container {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    min-height: 0.9em;
+
+    li {
+        display: inline;
+        min-height: 2em;
+
+        button {
+            min-height: 100%;
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+
+            padding: 0 1rem;
+            min-width: 5rem;
+            border-bottom: .3rem solid transparent;
+
+            &.active {
+                color: var(--link-hover-color);
+                border-color: var(--link-hover-color);
+            }
+
+            &:hover {
+                color: var(--link-hover-color);
+            }
+        }
+    }
+}
+
+.tab-content {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    pre {
+        margin-top: 0;
+    }
+}
