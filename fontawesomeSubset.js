@@ -1,9 +1,21 @@
 import { fontawesomeSubset } from "fontawesome-subset";
 
 const subset = {
-    "regular": ["envelope"],
-    "solid": ["rss", "star", "code-branch"],
-    "brands": ["twitter", "github", "linkedin"],
+    "regular": [
+        "comment",
+        "envelope",
+    ],
+    "solid": [
+        "code-branch",
+        "rss",
+        "star",
+    ],
+    "brands": [
+        "github",
+        "linkedin",
+        "markdown",
+        "twitter",
+    ],
 };
 
 fontawesomeSubset(
