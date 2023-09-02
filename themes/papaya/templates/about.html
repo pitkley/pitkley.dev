@@ -1,7 +1,7 @@
 {% import "macros/page.html" as page_macros %}
 {% extends "base.html" %}
 
-{% block title %}{{ trans(key="about", lang=lang) }} {{config.extra.ogp.first_name}}{% endblock title %}
+{% block title %}{{ trans(key="about", lang=lang) }} {{config.extra.ogp.first_name}} - {{ config.title }}{% endblock title %}
 
 {% block ogp_head %}
     <meta property="og:title" content="{{ trans(key="about", lang=lang) }} {{config.extra.ogp.first_name}}">
