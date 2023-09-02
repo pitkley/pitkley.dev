@@ -20,7 +20,3 @@
 :root {
     @include theme($theme: dark);
 }
-
-.img-dark {
-    filter: invert(100%) hue-rotate(180deg);
-}
