@@ -5,6 +5,11 @@ default_language = "en"
 
 theme = "papaya"
 
+author = "Pit"
+
+generate_feed = true
+feed_filename = "atom.xml"
+
 [markdown]
 highlight_code = true
 highlight_theme = "css"
@@ -52,8 +57,6 @@ max_width = 2500
 [languages.en]
 title = "pitkley.dev"
 description = "Blog posts covering a mostly technical topics, serving as both my personal documentation and informative pieces for your edification. Also small showcases of my open-source projects."
-generate_feed = true
-feed_filename = "atom.xml"
 taxonomies = [
     { name = "tags", feed = true, lang = "en" },
     { name = "categories", feed = true, lang = "en" },
