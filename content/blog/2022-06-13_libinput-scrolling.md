@@ -1,5 +1,6 @@
 +++
 title = "Disable Logitech high-resolution smooth scrolling under Linux"
+updated = "2023-04-12"
 
 [taxonomies]
 tags = [
