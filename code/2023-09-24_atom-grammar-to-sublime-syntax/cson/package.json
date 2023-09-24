@@ -1,0 +1,17 @@
+{
+  "name": "cson",
+  "version": "0.0.0",
+  "description": "Small wrapper project to bundle `cson-parser` in browser-compatible manner",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify index.js --standalone CSON"
+  },
+  "author": "Pit Kleyersburg <pitkley@googlemail.com>",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "cson-parser": "^4.0.9"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0"
+  }
+}

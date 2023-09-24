@@ -6,3 +6,5 @@
 /static/fontawesome.min.css
 /static/htmx.min.js
 /static/syntax-theme.css
+/static/atom-grammar-to-sublime-syntax/*
+!/static/atom-grammar-to-sublime-syntax/index.js

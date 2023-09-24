@@ -1,5 +1,9 @@
-.PHONY: all
+MAKEFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
+ROOT_DIR := $(patsubst %/,%,$(dir $(MAKEFILE_PATH)))
 
+NESTED_MAKEFILES = $(shell find code/ -type f -name Makefile -a \! -path '*/node_modules/*')
+
+.PHONY: all
 all: zola_build
 
 npm_ci:
@@ -14,7 +18,13 @@ vendor_fontawesome_css: npm_ci
 build_fontawesome_font_subset: npm_ci
 	npm run build-fontawesome-font-subset
 
-prerequisites: vendor_htmx_js vendor_fontawesome_css build_fontawesome_font_subset
+build_nested_makefiles:
+	@for makefile in $(NESTED_MAKEFILES); do \
+		echo "running nested make in $$(dirname $$makefile)"; \
+		ROOT_DIR="${ROOT_DIR}" $(MAKE) -C $$(dirname $$makefile); \
+	done
+
+prerequisites: vendor_htmx_js vendor_fontawesome_css build_fontawesome_font_subset build_nested_makefiles
 
 zola_build: prerequisites
 ifdef CF_PAGES_BRANCH
