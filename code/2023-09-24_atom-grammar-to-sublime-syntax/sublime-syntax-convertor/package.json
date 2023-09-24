@@ -1,0 +1,17 @@
+{
+  "name": "sublime-syntax-convertor",
+  "description": "Transliteration of https://github.com/aziz/SublimeSyntaxConvertor",
+  "author": "Original author: Allen Bargi <allen.bargi@gmail.com>, transliterated by: Pit Kleyersburg <pitkley@googlemail.com>",
+  "license": "MIT",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "plist": "^3.1.0"
+  }
+}

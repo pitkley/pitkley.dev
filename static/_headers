@@ -1,2 +1,5 @@
 /*
   Content-Security-Policy: default-src 'self';
+/blog/atom-grammar-to-sublime-syntax/
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval';

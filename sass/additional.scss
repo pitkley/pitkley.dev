@@ -78,3 +78,32 @@ ol.tab-container {
         margin-top: 0;
     }
 }
+
+textarea.code {
+    font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+    font-size: 0.90em;
+    line-height: 130%;
+    min-width: 100%;
+    min-height: 100px;
+    max-height: 500px;
+    box-sizing: border-box;
+    border:none;
+    border: .3rem solid transparent;
+    border-color: var(--link-hover-color);
+
+    padding: 0.7em;
+
+    background-color: var(--code-background);
+    color: var(--code-text-color);
+
+    &.code-output {
+        max-height: none;
+        border: .3rem solid transparent;
+        border-color: var(--border-color);
+        color: var(--code-text-color);
+    }
+
+    &::placeholder {
+        opacity: 1;
+    }
+}
