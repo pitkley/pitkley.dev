@@ -34,12 +34,21 @@
   </a>
   {% endif %}
 
-  {% if config.generate_feed %}
-  <a href="{{ base_url }}/{{ config.feed_filename }}" aria-label="Open atom xml feed" target="_blank">
+  {% if config.generate_feeds %}
+  {%- for feed in config.feed_filenames -%}
+  {%- if feed is containing('atom') -%}
+  <a href="{{ get_url(path=feed, trailing_slash=false, lang=lang) | safe }}" type="application/atom+xml" target="_blank" title="{{ config.title }} Atom Feed">
     <span class="icon is-large">
-      <i class="fas fa-rss fa-lg" aria-hidden="true" title="atom xml feed"></i>
+      <i class="fas fa-rss fa-lg" aria-hidden="true" title="{{ config.title }} Atom feed"></i>
     </span>
-  </a>
+  </a>{% endif -%}
+  {%- if feed is containing('rss') -%}
+  <a href="{{ get_url(path=feed, trailing_slash=false, lang=lang) | safe }}" type="application/rss+xml" target="_blank" title="{{ config.title }} RSS Feed">
+    <span class="icon is-large">
+      <i class="fas fa-rss fa-lg" aria-hidden="true" title="{{ config.title }} RSS feed"></i>
+    </span>
+  </a>{% endif -%}
+  {%- endfor -%}
   {% endif %}
 
   {% if social_config.other %}

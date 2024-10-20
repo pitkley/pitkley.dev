@@ -5,7 +5,7 @@
 <main id="main" class="index" tabindex="-1">
     <section id="banner">
         {% set banner = resize_image(path="/static/banner.jpg", width=672, op="fit_width") %}
-        <img src="{{ banner.url }}" class="index-banner" alt="A misty forest."/>
+        <img src="{{ banner.url | safe }}" class="index-banner" alt="{{ config.extra.banner_alt }}"/>
         {% if config.extra.banner_attribution %}
             <em>{{ config.extra.banner_attribution | markdown(inline=true) | safe }}</em>
         {% endif %}

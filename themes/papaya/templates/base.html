@@ -11,7 +11,7 @@
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="description" content="{{ config.description }}">
 
-    {% set color_mode_css_path = config.extra.color_mode ~ ".css" %}
+    {% set color_mode_css_path = config.extra.color_mode ~ ".css" -%}
     <link rel="preload" href="{{ get_url(path="base.css", trailing_slash=false) }}" as="style">
     <link rel="stylesheet" href="{{ get_url(path="base.css", trailing_slash=false) }}">
     <link rel="preload" href="{{ get_url(path=color_mode_css_path, trailing_slash=false) }}" as="style">
@@ -27,38 +27,45 @@
 
     <script async defer src="{{ get_url(path="base.js", trailing_slash=false) }}"></script>
 
-    {% set umami_website_id = get_env(name=config.extra.umami.website_id_environment_variable_name, default=false) %}
-    {% if umami_website_id %}
+    {%- set umami_website_id = get_env(name=config.extra.umami.website_id_environment_variable_name, default=false) %}
+    {%- if umami_website_id -%}
     <script async defer src="{{ get_url(path="/u.js", trailing_slash=false)}}" data-website-id="{{ umami_website_id }}" data-do-not-track="true"></script>
-    {% endif %}
+    {%- endif %}
 
-    {% if config.generate_feed %}
-    <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
-    {% endif %}
+    {% if config.generate_feeds -%}
+    {%- for feed in config.feed_filenames -%}
+    {%- if feed is containing('atom') -%}
+    <link rel="alternate" type="application/atom+xml" title="{{ config.title }} Atom feed" href="{{ get_url(path=feed, trailing_slash=false, lang=lang) | safe }}">
+    {%- endif -%}
+    {%- if feed is containing('rss') -%}
+    <link rel="alternate" type="application/rss+xml" title="{{ config.title }} RSS feed" href="{{ get_url(path=feed, trailing_slash=false, lang=lang) | safe }}">
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endif %}
 
-    {% block ogp_head %}
+    {% block ogp_head -%}
     <meta property="og:title" content="{{ config.title }}">
     <meta property="og:type" content="website">
-    {% endblock ogp_head %}
+    {%- endblock ogp_head %}
 
-    {% block extra_head %}
-    {% endblock extra_head %}
+    {% block extra_head -%}
+    {%- endblock extra_head -%}
 </head>
 <body hx-boost="true">
 <div class="container">
     {% block header %}
-    {% set base_url = get_url(path="", lang=lang) %}
+    {%- set base_url = get_url(path="", lang=lang) -%}
     <header>
         <h1 class="site-header">
-            <a href="{{ base_url }}">{{ config.title }}</a>
+            <a href="{{ base_url | safe }}">{{ config.title }}</a>
         </h1>
         <nav>
             <ul>
-            {% block nav_bar %}
-            {% for subsec in config.extra.menu_items %}
+            {%- block nav_bar -%}
+            {%- for subsec in config.extra.menu_items -%}
                 {% set link_url = subsec.url | replace(from="$BASE_URL", to=config.base_url) | replace(from="$LANG_BASE_URL", to=base_url) %}
-                <li><a {% if current_url and current_url is starting_with(link_url) %}class="active"{% endif %} href="{{ link_url }}">{{ trans(key=subsec.name, lang=lang) }}</a></li>
-            {% endfor %}
+                <li><a {% if current_url and current_url is starting_with(link_url) %}class="active"{% endif %} href="{{ link_url | safe }}">{{ trans(key=subsec.name, lang=lang) }}</a></li>
+            {%- endfor -%}
             {% endblock nav_bar %}
             </ul>
         </nav>

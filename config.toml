@@ -7,8 +7,8 @@ theme = "papaya"
 
 author = "Pit"
 
-generate_feed = true
-feed_filename = "atom.xml"
+generate_feeds = true
+feed_filenames = ["atom.xml"]
 
 [markdown]
 highlight_code = true
@@ -21,9 +21,11 @@ extra_syntaxes_and_themes = ["syntaxes"]
 [link_checker]
 skip_prefixes = [
     "https://dash.cloudflare.com/", # returns a 403 in certain circumstances
+    "https://www.reddit.com/", # returns a 403 in CI (likely due to IP blocking)
 ]
 
 [extra]
+banner_alt = """Empty tram station at night time in Stuttgart, Germany"""
 banner_attribution = """&mdash; Photo by [Christian Lue](https://unsplash.com/@christianlue) on [Unsplash](https://unsplash.com/photos/4OBZT6oLVHk)"""
 
 color_mode = "auto"

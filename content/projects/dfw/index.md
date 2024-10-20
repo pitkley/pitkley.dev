@@ -38,5 +38,5 @@ You can find [more example configurations in the GitHub repository][github-dfw-e
 
 [github-dfw]: https://github.com/pitkley/dfw
 [github-dfw-examples]: https://github.com/pitkley/dfw/tree/main/examples
-[github-dfw-readme]: https://github.com/pitkley/dfw#readme
+[github-dfw-readme]: https://github.com/pitkley/dfw?tab=readme-ov-file#user-content-dfw---docker-firewall-framework-in-rust
 [github-dfwfw]: https://github.com/irsl/dfwfw

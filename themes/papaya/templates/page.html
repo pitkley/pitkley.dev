@@ -94,7 +94,7 @@
 
     <ul class="call-to-action">
         <li>
-            <a href="https://github.com/pitkley/pitkley.dev/blob/main/content/{{ page.relative_path }}" target="_blank"><i class="fab fa-markdown fa-lg" aria-hidden="true"></i> View page source on GitHub</a>
+            <a href="https://github.com/pitkley/pitkley.dev/blob/main/content/{{ page.relative_path | safe }}" target="_blank"><i class="fab fa-markdown fa-lg" aria-hidden="true"></i> View page source on GitHub</a>
         </li>
         <li>
             <a href="https://github.com/pitkley/pitkley.dev/discussions/new?category=feedback&title={{ 'Feedback on "' ~ page.title ~ '"' | urlencode_strict }}" target="_blank"><i class="far fa-comment fa-lg" aria-hidden="true"></i> Provide feedback on GitHub</a>
