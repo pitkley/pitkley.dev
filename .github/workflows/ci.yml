@@ -14,7 +14,7 @@ jobs:
       with:
         tool: zola@0.17.2
     - name: Checkout main
-      uses: actions/checkout@v3.0.0
+      uses: actions/checkout@v4
     - name: make prerequisites
       run: make prerequisites
     - name: zola check --drafts
