@@ -4,7 +4,7 @@ ROOT_DIR := $(patsubst %/,%,$(dir $(MAKEFILE_PATH)))
 NESTED_MAKEFILES = $(shell find code/ -type f -name Makefile -a \! -path '*/node_modules/*')
 
 .PHONY: all
-all: zola_build
+all: build
 
 npm_ci:
 	npm ci
@@ -36,6 +36,11 @@ endif
 else
 	UMAMI_WEBSITE_ID="fffaec0e-044e-4f68-840f-b39fff2af546" zola build
 endif
+
+purge_css: zola_build
+	node_modules/.bin/purgecss --css static/fontawesome.min.css --content public/**/*.html --output public/
+
+build: zola_build purge_css
 
 serve: prerequisites
 	zola serve
