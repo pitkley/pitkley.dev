@@ -21,6 +21,7 @@ extra_syntaxes_and_themes = ["syntaxes"]
 [link_checker]
 skip_prefixes = [
     "https://dash.cloudflare.com/", # returns a 403 in certain circumstances
+    "https://www.reddit.com/", # returns a 403 in CI (likely due to IP blocking)
 ]
 
 [extra]
