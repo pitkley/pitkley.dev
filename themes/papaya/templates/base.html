@@ -32,9 +32,16 @@
     <script async defer src="{{ get_url(path="/u.js", trailing_slash=false)}}" data-website-id="{{ umami_website_id }}" data-do-not-track="true"></script>
     {% endif %}
 
-    {% if config.generate_feed %}
-    <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
-    {% endif %}
+    {% if config.generate_feeds -%}
+    {%- for feed in config.feed_filenames -%}
+    {%- if feed is containing('atom') -%}
+    <link rel="alternate" type="application/atom+xml" title="{{ config.title }} Atom feed" href="{{ get_url(path=feed, trailing_slash=false, lang=lang) | safe }}">
+    {%- endif -%}
+    {%- if feed is containing('rss') -%}
+    <link rel="alternate" type="application/rss+xml" title="{{ config.title }} RSS feed" href="{{ get_url(path=feed, trailing_slash=false, lang=lang) | safe }}">
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endif %}
 
     {% block ogp_head %}
     <meta property="og:title" content="{{ config.title }}">
