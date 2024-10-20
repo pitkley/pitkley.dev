@@ -2,9 +2,6 @@ export PATH := $(HOME)/.bun/bin:$(PATH)
 
 .PHONY: build
 
-install_bun:
-	curl -fsSL https://bun.sh/install | bash
-
 build: check-env
 	bun install
 	bun build --target=browser ./index.ts --outdir=out
@@ -17,9 +14,9 @@ ifndef ROOT_DIR
 endif
 ifeq (, $(shell which bun))
 ifdef CF_PAGES_BRANCH # We are building in Cloudflare so we install bun
-	$(MAKE) install_bun
+	curl -fsSL https://bun.sh/install | bash
 else ifdef CI # We are building in GitHub Actions so we install bun
-	$(MAKE) install_bun
+	curl -fsSL https://bun.sh/install | bash
 else
 	$(error "No bun in $(PATH)")
 endif
