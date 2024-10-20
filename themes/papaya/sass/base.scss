@@ -108,6 +108,7 @@ a:active {
 }
 
 a.active {
+    font-weight: bold;
     color: var(--link-hover-color);
     transition: all 0.1s linear;
 }
@@ -264,7 +265,7 @@ main h1 {
 
 /* Articles */
 article {
-    padding-bottom: 0.5em;
+    padding-bottom: 1em;
 }
 
 article:first-of-type header h3 {
@@ -290,6 +291,7 @@ article header h2 {
 }
 
 .article-info {
+    padding-top: 0.25em;
     font-size: 0.75em;
     color: var(--text-accent-color);
 
@@ -338,7 +340,7 @@ article header h2 {
 
     li {
         display: inline;
-        margin-right: 0.2em;
+        margin-right: 0.5em;
     }
 }
 

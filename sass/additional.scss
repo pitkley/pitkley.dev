@@ -1,6 +1,15 @@
+p {
+    a {
+        font-weight: bold;
+    }
+}
+
 footer p.licensing {
-    color: var(--text-accent-color);
     font-size: 60%;
+
+    a {
+        font-weight: bold;
+    }
 }
 
 // Syntax colors are from gruvbox-dark
