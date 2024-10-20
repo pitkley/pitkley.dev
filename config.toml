@@ -7,8 +7,8 @@ theme = "papaya"
 
 author = "Pit"
 
-generate_feed = true
-feed_filename = "atom.xml"
+generate_feeds = true
+feed_filenames = ["atom.xml"]
 
 [markdown]
 highlight_code = true
