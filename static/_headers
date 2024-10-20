@@ -1,5 +1,7 @@
 /*
-  Content-Security-Policy: default-src 'self';
+  Content-Security-Policy: default-src 'self'; frame-ancestors 'none';
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
 /blog/atom-grammar-to-sublime-syntax/
   ! Content-Security-Policy
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval'; frame-ancestors 'none';
