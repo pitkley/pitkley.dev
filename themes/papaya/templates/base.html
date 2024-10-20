@@ -57,14 +57,14 @@
     {% set base_url = get_url(path="", lang=lang) %}
     <header>
         <h1 class="site-header">
-            <a href="{{ base_url }}">{{ config.title }}</a>
+            <a href="{{ base_url | safe }}">{{ config.title }}</a>
         </h1>
         <nav>
             <ul>
             {% block nav_bar %}
             {% for subsec in config.extra.menu_items %}
                 {% set link_url = subsec.url | replace(from="$BASE_URL", to=config.base_url) | replace(from="$LANG_BASE_URL", to=base_url) %}
-                <li><a {% if current_url and current_url is starting_with(link_url) %}class="active"{% endif %} href="{{ link_url }}">{{ trans(key=subsec.name, lang=lang) }}</a></li>
+                <li><a {% if current_url and current_url is starting_with(link_url) %}class="active"{% endif %} href="{{ link_url | safe }}">{{ trans(key=subsec.name, lang=lang) }}</a></li>
             {% endfor %}
             {% endblock nav_bar %}
             </ul>
