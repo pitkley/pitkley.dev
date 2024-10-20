@@ -24,6 +24,7 @@ skip_prefixes = [
 ]
 
 [extra]
+banner_alt = """Empty tram station at night time in Stuttgart, Germany"""
 banner_attribution = """&mdash; Photo by [Christian Lue](https://unsplash.com/@christianlue) on [Unsplash](https://unsplash.com/photos/4OBZT6oLVHk)"""
 
 color_mode = "auto"
