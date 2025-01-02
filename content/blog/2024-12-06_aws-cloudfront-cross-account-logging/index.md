@@ -9,11 +9,11 @@ tags = [
 
 > _**WARNING:**_
 >
-> This guide was written in the context of AWS CloudFront's previous legacy logging feature, rather than the current "Standard logging (v2)" which was introduce on November 20th 2024.
+> This guide was written in the context of AWS CloudFront's previous legacy logging feature, rather than the current "Standard logging (v2)" which was introduced on November 20th 2024.
 > There is a chance that the information in this guide either is not complete for the new version of CloudFront standard logging, or that it performs steps that are no longer necessary.
 >
 > If you follow this guide with CloudFront standard logging v2, please let me know if it worked for you.
-> You can reach out either through the feedback link at the bottom of this post or via email, which you can find at the very bottom of the page.
+> You can reach out either through the feedback link at the bottom of this post or via email, which you can find at the very bottom of this page.
 
 You can configure AWS CloudFront to send access logs to S3.
 The details on how to do this cross-account though was not trivial for me to identify.
@@ -22,7 +22,7 @@ This guide attempts to summarize the steps required as succinctly as possible.
 
 ## Terms used in this guide
 
-* **Source account**: The account that own the CloudFront distribution(s) that you want to send logs from.
+* **Source account**: The account that owns the CloudFront distribution(s) that you want to send logs from.
 * **Target account**: The account that owns the S3 bucket that you want to send the logs to.
 * **Canonical user ID**: A unique identifier for an AWS account that is primarily used in the context of S3.
 This is not the same as the regular AWS account ID.
@@ -40,7 +40,7 @@ This is not the same as the regular AWS account ID.
 
         Through the CLI, API, or Infrastructure as Code (like CloudFormation) you will have to provide the "object ownership" setting with the `BucketOwnerPreferred` value.
 
-    * **Name:** I recommend choosing an obscure bucket name, as (from what I found) there is no way to restrict which CloudFront distributions will be able to log to this bucket.
+    * **Name:** I recommend choosing an obscure bucket name as (from what I found) there is no way to restrict which CloudFront distributions will be able to log to this bucket.
     In other words: if you choose an easily guessable name, anyone might be able to configure their CloudFront distributions to log into your S3 bucket, incurring costs for you.
 
 1. _(This step is not required if you configure the bucket through the AWS Console:)_ Retrieve the canonical user ID of the target account to ensure modifying the bucket ACL later on will not disallow the target account from accessing its own bucket.
