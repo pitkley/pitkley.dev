@@ -13,7 +13,7 @@ Google Maps exposes some summary-like data, but not for all locations and not fo
 
 I need this most frequently to count the number of unique days I was at my work location in a given calendar year, to correctly calculate both the commuting allowance and home-office allowance for the German income tax declaration.
 
-I got a reliable count of unique days by exporting the raw Google Maps Timeline data and running a Python script on it that checks for all visits tracked if they are within a configurable range of a configurable location
+I got a reliable count of unique days by exporting the raw Google Maps Timeline data and running a Python script on it that checks for all visits tracked if they are within a configurable range of a configurable location.
 The script then returns both the days and times you were at (or near to) the location, as well as the total count of unique days.
 
 1. Export the raw timeline data.
@@ -114,8 +114,10 @@ The script then returns both the days and times you were at (or near to) the loc
 
     * `RANGE_TO_LOCATION_IN_METERS`: set this to the radius in meters within which you should be considered to have visited the location.
     * `LOCAL_TIMEZONE`: set this to your local timezone.
-    * `LOWER_BOUND`: this is the inclusive lower bound from when on a visit will be counted.
-    * `UPPER_BOUND`: this is the exclusive upper bound from when on a visit will no longer be counted.
+    * `LOWER_BOUND`: this is the date on and after which a visit will be counted.
+    * `UPPER_BOUND`: this is the date from when on a visit will no longer be counted.
+
+        The bounds help you to restrict which time range of the raw data should be considered.
 
 5. Run the script.
 
